@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setFragment(new LoginFragment());
 
         signinbutton = findViewById(R.id.signinbutton);
         signupbutton = findViewById(R.id.signupbutton);
@@ -38,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         }
         getSupportActionBar().hide();
         getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.black));
+    }
+    public void setFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, fragment)
+                .commit();
     }
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
