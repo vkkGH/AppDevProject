@@ -8,7 +8,7 @@
     tools:context=".Success">
 
     <Button
-        android:id="@+id/registerbutton3"
+        android:id="@+id/done"
         android:layout_width="303dp"
         android:layout_height="46dp"
         android:layout_marginStart="32dp"
@@ -41,7 +41,7 @@
         android:text="Your Trip Booking Success!"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerbutton3"
+        app:layout_constraintBottom_toTopOf="@+id/done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
