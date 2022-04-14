@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,7 +18,6 @@ import android.widget.EditText;
  */
 public class SignUpFragment extends Fragment {
     Button register;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -63,29 +63,64 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        EditText firstNameInfo = getView().findViewById(R.id.firstNameField);
-        EditText lastNameInfo = getView().findViewById(R.id.lastNameField);
-        EditText phoneInfo = getView().findViewById(R.id.phoneField);
-        EditText emailInfo = getView().findViewById(R.id.emailField);
-        EditText passwordInfo = getView().findViewById(R.id.passwordField);
-        EditText confirmPasswordInfo = getView().findViewById(R.id.confirmPasswordField);
+        View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
+        EditText firstNameInfo = view.findViewById(R.id.firstNameField);
+        EditText lastNameInfo = view.findViewById(R.id.lastNameField);
+        EditText phoneInfo = view.findViewById(R.id.phoneField);
+        EditText emailInfo = view.findViewById(R.id.emailField);
+        EditText passwordInfo = view.findViewById(R.id.passwordField);
+        EditText confirmPasswordInfo = view.findViewById(R.id.confirmPasswordField);
+        Button register = view.findViewById(R.id.registerbutton);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast message = null;
                 String firstName = firstNameInfo.getText().toString();
                 String lastName = lastNameInfo.getText().toString();
                 String phone = phoneInfo.getText().toString();
                 String email = emailInfo.getText().toString();
                 String password = passwordInfo.getText().toString();
                 String confirmPassword = confirmPasswordInfo.getText().toString();
+                Toast.makeText(getActivity(), firstName, Toast.LENGTH_LONG).show();
+                if (firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
 
+                    message = Toast.makeText(getActivity(), "Please fill all the fields!", Toast.LENGTH_LONG);
+                    message.show();
+                }
+                if (!firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty() && password.length() < 5) {
+                    if (message != null) {
+                        message.cancel();
+                    }
+                    message = Toast.makeText(getActivity(), "Your password has to contain at least 5 characters!", Toast.LENGTH_LONG);
+                    message.show();
+                }
+                if (!password.equals(confirmPassword)) {
+                    if (message != null) {
+                        message.cancel();
+                    }
+                    message = Toast.makeText(getActivity(), "Your passwords do not match!", Toast.LENGTH_LONG);
+                    message.show();
+                }
                 if (!firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()
-                && (password.equals(confirmPassword))) {
+                        && (password.equals(confirmPassword))) {
+                    if (message != null) {
+                        message.cancel();
+                    }
+                    message = Toast.makeText(getActivity(), "You have registered successfully!", Toast.LENGTH_LONG);
+                    message.show();
+                    message = Toast.makeText(getActivity(), "Please sign in to continue!", Toast.LENGTH_LONG);
+                    message.show();
+
 
                 }
+
             }
+
+
         });
-        return inflater.inflate(R.layout.fragment_sign_up, container, false);
+
+
+        return view;
     }
 
 
