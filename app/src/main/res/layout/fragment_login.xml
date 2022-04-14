@@ -45,6 +45,7 @@
 
     <Button
         android:id="@+id/registerbutton"
+        android:onClick="buttonClick"
         android:background="@drawable/registerloginbuttons"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"

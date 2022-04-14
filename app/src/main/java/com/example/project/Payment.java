@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class Payment extends AppCompatActivity {
 
-    Button btn;
+    private Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
