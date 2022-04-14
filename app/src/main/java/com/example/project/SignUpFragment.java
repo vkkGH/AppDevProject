@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +16,7 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class SignUpFragment extends Fragment {
+    Button register;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +63,28 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        EditText firstNameInfo = getView().findViewById(R.id.firstNameField);
+        EditText lastNameInfo = getView().findViewById(R.id.lastNameField);
+        EditText phoneInfo = getView().findViewById(R.id.phoneField);
+        EditText emailInfo = getView().findViewById(R.id.emailField);
+        EditText passwordInfo = getView().findViewById(R.id.passwordField);
+        EditText confirmPasswordInfo = getView().findViewById(R.id.confirmPasswordField);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String firstName = firstNameInfo.getText().toString();
+                String lastName = lastNameInfo.getText().toString();
+                String phone = phoneInfo.getText().toString();
+                String email = emailInfo.getText().toString();
+                String password = passwordInfo.getText().toString();
+                String confirmPassword = confirmPasswordInfo.getText().toString();
+
+                if (!firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()
+                && (password.equals(confirmPassword))) {
+
+                }
+            }
+        });
         return inflater.inflate(R.layout.fragment_sign_up, container, false);
     }
 

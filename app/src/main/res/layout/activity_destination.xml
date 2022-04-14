@@ -115,4 +115,11 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="358dp" />
 
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="242dp"
+        android:layout_height="41dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="188dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
