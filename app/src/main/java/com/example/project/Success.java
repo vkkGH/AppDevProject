@@ -14,10 +14,10 @@ public class Success extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success);
-        btn = findViewById(R.id.button);
+        btn = findViewById(R.id.done);
 
         btn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, Adventures.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }

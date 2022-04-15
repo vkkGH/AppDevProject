@@ -1,61 +1,63 @@
 package com.example.project;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     Context context;
-    String[] data;
 
-    public RecyclerAdapter(Context context, String[] data) {
+    ArrayList<Location> list;
+
+    public RecyclerAdapter(Context context, ArrayList<Location> list) {
         this.context = context;
-        this.data = data;
+        this.list = list;
     }
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.activity_adventures, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-
-        return viewHolder;
+        View view = LayoutInflater.from(context).inflate(R.layout.destinations, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.textView.setText(data[position]);
-        holder.textView.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Location location = list.get(position);
 
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "Click on " + data[position], Toast.LENGTH_SHORT).show();
-            }
-        });
+//        holder.images.set);
+        holder.price.setText(location.getPrice());
+        holder.location_name.setText(location.getLocation_name());
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+//        ImageView images;
+        TextView price;
+        TextView location_name;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.destinationNames);
+
+//            images = itemView.findViewById(R.id.dt_images);
+            price = itemView.findViewById(R.id.dt_price);
+            location_name = itemView.findViewById(R.id.dt_locationName);
         }
     }
+
+
 }

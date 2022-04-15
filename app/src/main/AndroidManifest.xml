@@ -16,6 +16,9 @@
             android:name=".Success"
             android:exported="false" />
         <activity
+            android:name=".Recycle"
+            android:exported="false" />
+        <activity
             android:name=".Payment"
             android:exported="false" />
         <activity

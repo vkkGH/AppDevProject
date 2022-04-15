@@ -68,7 +68,7 @@ public class LoginFragment extends Fragment {
         registerBtn = view.findViewById(R.id.registerbutton);
 
         registerBtn.setOnClickListener(view1 -> {
-           Intent intent = new Intent(getActivity(), Adventures.class);
+           Intent intent = new Intent(getActivity(), Recycle.class);
            startActivity(intent);
         });
 
