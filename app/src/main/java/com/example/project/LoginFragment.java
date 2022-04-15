@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.AuthResult;
 //import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,7 +25,7 @@ import com.google.android.gms.tasks.Task;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment {
-
+    FirebaseAuth fAuth;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -70,6 +72,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        fAuth = FirebaseAuth.getInstance();
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         EditText emailInfo = view.findViewById(R.id.emailLoginField);
         EditText passwordInfo = view.findViewById(R.id.passwordLoginField);
@@ -85,6 +88,19 @@ public class LoginFragment extends Fragment {
 
                     message = Toast.makeText(getActivity(), "Please fill all the fields!", Toast.LENGTH_LONG);
                     message.show();
+                }
+                else {
+                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getActivity(), "You have logged in successfully!", Toast.LENGTH_LONG).show();
+                            }
+                            else {
+                                Toast.makeText(getActivity(), "Login unsuccessful!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
                 }
 
             }
