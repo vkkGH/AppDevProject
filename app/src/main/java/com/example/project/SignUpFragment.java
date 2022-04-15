@@ -1,7 +1,9 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,13 +13,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+//import com.google.android.gms.tasks.OnCompleteListener;
+//import com.google.android.gms.tasks.Task;
+//import com.google.firebase.auth.AuthResult;
+//import com.google.firebase.auth.FirebaseAuth;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SignUpFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class SignUpFragment extends Fragment {
-    Button register;
+    FirebaseAuth fAuth;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,6 +74,7 @@ public class SignUpFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        fAuth = FirebaseAuth.getInstance();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         EditText firstNameInfo = view.findViewById(R.id.firstNameField);
@@ -81,17 +94,17 @@ public class SignUpFragment extends Fragment {
                 String email = emailInfo.getText().toString();
                 String password = passwordInfo.getText().toString();
                 String confirmPassword = confirmPasswordInfo.getText().toString();
-                Toast.makeText(getActivity(), firstName, Toast.LENGTH_LONG).show();
+                //fAuth = FirebaseAuth.getInstance();
                 if (firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
 
                     message = Toast.makeText(getActivity(), "Please fill all the fields!", Toast.LENGTH_LONG);
                     message.show();
                 }
-                if (!firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty() && password.length() < 5) {
+                if (!firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty() && password.length() < 6) {
                     if (message != null) {
                         message.cancel();
                     }
-                    message = Toast.makeText(getActivity(), "Your password has to contain at least 5 characters!", Toast.LENGTH_LONG);
+                    message = Toast.makeText(getActivity(), "Your password has to contain at least 6 characters!", Toast.LENGTH_LONG);
                     message.show();
                 }
                 if (!password.equals(confirmPassword)) {
@@ -102,7 +115,15 @@ public class SignUpFragment extends Fragment {
                     message.show();
                 }
                 if (!firstName.isEmpty() && !lastName.isEmpty() && !phone.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()
-                        && (password.equals(confirmPassword))) {
+                        && (password.equals(confirmPassword)) && password.length() >= 6) {
+                    fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        }
+                    });
+
                     if (message != null) {
                         message.cancel();
                     }
