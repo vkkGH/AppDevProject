@@ -14,9 +14,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 //import com.google.android.gms.tasks.OnCompleteListener;
 //import com.google.android.gms.tasks.Task;
@@ -30,6 +37,7 @@ import com.google.firebase.auth.FirebaseAuth;
  */
 public class SignUpFragment extends Fragment {
     FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -75,6 +83,7 @@ public class SignUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         EditText firstNameInfo = view.findViewById(R.id.firstNameField);
@@ -94,6 +103,7 @@ public class SignUpFragment extends Fragment {
                 String email = emailInfo.getText().toString();
                 String password = passwordInfo.getText().toString();
                 String confirmPassword = confirmPasswordInfo.getText().toString();
+
                 //fAuth = FirebaseAuth.getInstance();
                 if (firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
 
@@ -120,7 +130,21 @@ public class SignUpFragment extends Fragment {
 
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                String userID = fAuth.getCurrentUser().getUid();
+                                DocumentReference reference  = fStore.collection("Users").document(userID);
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("First Name", firstName);
+                                user.put("Last Name", lastName);
+                                user.put("Phone", phone);
+                                user.put("Email", email);
+                                reference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
 
+                                    }
+                                });
+                            }
                         }
                     });
 

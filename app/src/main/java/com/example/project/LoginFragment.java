@@ -83,7 +83,7 @@ public class LoginFragment extends Fragment {
                 Toast message = null;
                 String email = emailInfo.getText().toString();
                 String password = passwordInfo.getText().toString();
-                //fAuth = FirebaseAuth.getInstance();
+                fAuth = FirebaseAuth.getInstance();
                 if (email.isEmpty() || password.isEmpty()) {
 
                     message = Toast.makeText(getActivity(), "Please fill all the fields!", Toast.LENGTH_LONG);
