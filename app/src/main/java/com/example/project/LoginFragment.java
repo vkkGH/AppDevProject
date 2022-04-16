@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -95,6 +96,8 @@ public class LoginFragment extends Fragment {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getActivity(), "You have logged in successfully!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getContext(), Recycler.class);
+                                startActivity(intent);
                             }
                             else {
                                 Toast.makeText(getActivity(), "Login unsuccessful!", Toast.LENGTH_LONG).show();

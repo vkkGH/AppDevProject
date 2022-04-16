@@ -1,61 +1,73 @@
 package com.example.project;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.text.BreakIterator;
+import java.util.ArrayList;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    Context context;
-    String[] data;
+    Context destinationContext;
+    ArrayList<Destination> destinationsList;
 
-    public RecyclerAdapter(Context context, String[] data) {
-        this.context = context;
-        this.data = data;
+    public RecyclerAdapter(Context destinationContext, ArrayList<Destination> destinationsList) {
+        this.destinationContext = destinationContext;
+        this.destinationsList = destinationsList;
     }
-
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.activity_adventures, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-
-        return viewHolder;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_adventures, parent, false);
+        //View view = LayoutInflater.from(destinationContext).inflate(R.layout.activity_recycle, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.textView.setText(data[position]);
-        holder.textView.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Destination destination = destinationsList.get(position);
+        holder.destinationName.setText(String.valueOf(destination.getLocation_name()));
+        holder.destinationPrice.setText(String.valueOf(destination.getPrice()));
+       //Glide.with(destinationContext).load(destination.getImage().into(holder.destinationImage));
 
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "Click on " + data[position], Toast.LENGTH_SHORT).show();
-            }
-        });
+       // holder.destinationName.setText(destinationsList.get(position).getName());
+        //holder.destinationPrice.setText(String.valueOf(destinationsList.get(position).getPrice()));
+
+        //Glide.with(destinationContext).load(destinationsList.get(position).getImage()).into(holder.destinationImage);
+
+
+
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+
+        return destinationsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView textView;
-
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView destinationImage;
+        TextView destinationName;
+        TextView destinationPrice;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            //textView = itemView.findViewById(R.id.destinationNames);
+            destinationImage = itemView.findViewById(R.id.destinationImageView);
+            destinationName = itemView.findViewById(R.id.destinationNameView);
+            destinationPrice = itemView.findViewById(R.id.destinationPriceView);
         }
     }
+
+
+
 }
