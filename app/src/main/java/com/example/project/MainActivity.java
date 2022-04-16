@@ -1,7 +1,6 @@
 package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -11,7 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
 
     Button signinbutton, signupbutton;
 
@@ -38,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }); {
 
         }
-        getSupportActionBar().hide();
-        getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.black));
+
     }
     public void setFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -53,4 +54,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frameLayout, fragment);
         fragmentTransaction.commit();
     }
+    /*
+    private void setUpAdventures(){
+        String[] adventuresNames = (String[]) adventuresNamesList.toArray();
+
+        for(int i = 0; i<adventuresNames.length;i++){
+            adventuresModels.add(new Adventures(adventuresNames[i]));
+        }
+    }
+
+     */
 }

@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+<<<<<<< Updated upstream
 
+=======
+            android:name=".Timer"
+            android:exported="false" />
+        <activity
+            android:name=".Adventures"
+            android:exported="false" />
+        <activity
+>>>>>>> Stashed changes
             android:name=".Success"
             android:exported="false" />
         <activity

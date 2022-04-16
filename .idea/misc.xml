@@ -19,13 +19,18 @@
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/drawable/menu.xml" value="0.214" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/drawable/registerloginbuttons.xml" value="0.214" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_adventures.xml" value="0.25" />
+        <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_adventures2.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_destination.xml" value="0.264" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_payment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_success.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_timer.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/activity_welcome.xml" value="0.264" />
+        <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/adventures_layout.xml" value="0.264" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/fragment_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/recycle_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/recycler_view_row.xml" value="0.22826086956521738" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/left_arrow.xml" value="0.2985" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/menustyle.xml" value="0.3635" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/registerloginbuttons.xml" value="0.294" />
@@ -43,5 +48,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>
