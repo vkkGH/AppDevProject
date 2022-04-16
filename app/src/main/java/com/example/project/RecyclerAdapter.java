@@ -30,7 +30,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_adventures, parent, false);
-        //View view = LayoutInflater.from(destinationContext).inflate(R.layout.activity_recycle, parent, false);
         return new ViewHolder(view);
     }
 
@@ -40,11 +39,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.destinationName.setText(String.valueOf(destination.getLocation_name()));
         holder.destinationPrice.setText(String.valueOf(destination.getPrice()));
         Glide.with(destinationContext).load(destination.getImageUrl()).into(holder.destinationImage);
-
-       // holder.destinationName.setText(destinationsList.get(position).getName());
-        //holder.destinationPrice.setText(String.valueOf(destinationsList.get(position).getPrice()));
-
-        //Glide.with(destinationContext).load(destinationsList.get(position).getImage()).into(holder.destinationImage);
 
 
 

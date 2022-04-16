@@ -21,12 +21,10 @@ import java.util.Objects;
 
 public class Recycler extends AppCompatActivity {
     RecyclerView recyclerView;
-   // FirebaseDatabase database = FirebaseDatabase.getInstance();
-   // private DatabaseReference reference;
     private DatabaseReference database;
     private ArrayList<Destination> destinationsList;
     private RecyclerAdapter recyclerAdapter;
-   // private Context context;
+
 
 
 
@@ -59,61 +57,6 @@ public class Recycler extends AppCompatActivity {
             }
         });
 
-        /*
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("Locations");
-        getSupportActionBar().hide();
-        getWindow().setStatusBarColor(ContextCompat.getColor(Recycler.this, R.color.black));
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycle);
-        recyclerAdapter = new RecyclerAdapter(this.getApplicationContext(), destinationsList);
-        recyclerView = findViewById(R.id.destinations);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(recyclerAdapter);
-        recyclerView.setHasFixedSize(true);
-        destinationsList = new ArrayList<>();
-        ClearAll();
-        GetFirebaseLocationData();
-
-         */
-    }
-    /*
-    private void GetFirebaseLocationData() {
-        Query query = reference.child("Locations");
-        query.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ClearAll();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Destination destinations = new Destination();
-                    destinations.setImage(snapshot.child("imageUrl").getValue().toString());
-                    destinations.setName(snapshot.child("location_name").getValue().toString());
-                   // destinations.setPrice(Double.parseDouble((String) Objects.requireNonNull(snapshot.child("price").getValue())));
-                    destinationsList.add(destinations);
-                }
-
-                recyclerAdapter = new RecyclerAdapter(getApplicationContext(), destinationsList);
-                recyclerView.setAdapter(recyclerAdapter);
-                recyclerAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-    private void ClearAll() {
-        if (destinationsList != null) {
-            destinationsList.clear();
-            if (recyclerAdapter != null) {
-                recyclerAdapter.notifyDataSetChanged();
-            }
-        }
-        destinationsList = new ArrayList<>();
     }
 
-     */
 }
