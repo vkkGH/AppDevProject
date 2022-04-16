@@ -84,8 +84,8 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="412dp"
-        android:layout_height="525dp"
+        android:layout_width="421dp"
+        android:layout_height="597dp"
         android:layout_marginTop="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

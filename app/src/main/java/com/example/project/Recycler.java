@@ -1,51 +1,54 @@
 package com.example.project;
 
+import android.content.Context;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class Recycle extends AppCompatActivity {
-
+public class Recycler extends AppCompatActivity {
     RecyclerView recyclerView;
-    DatabaseReference database;
-    RecyclerAdapter adapter;
-    ArrayList<Location> list;
+    private DatabaseReference database;
+    private ArrayList<Destination> destinationsList;
+    private RecyclerAdapter recyclerAdapter;
 
-    @Override
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle);
-
+        getSupportActionBar().hide();
+        getWindow().setStatusBarColor(ContextCompat.getColor(Recycler.this, R.color.black));
         recyclerView = findViewById(R.id.destinations);
-        database = FirebaseDatabase.getInstance().getReference().child("Locations");
+        database = FirebaseDatabase.getInstance().getReference("Locations");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        list = new ArrayList<>();
-        adapter = new RecyclerAdapter(this, list);
-        recyclerView.setAdapter(adapter);
-
+        destinationsList = new ArrayList<>();
+        recyclerAdapter = new RecyclerAdapter(this, destinationsList);
+        recyclerView.setAdapter(recyclerAdapter);
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Location location = dataSnapshot.getValue(Location.class);
-                    list.add(location);
-                }
+                    Destination destination = dataSnapshot.getValue(Destination.class);
+                    destinationsList.add(destination);
 
-                adapter.notifyDataSetChanged();
+                }
+                recyclerAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -55,4 +58,5 @@ public class Recycle extends AppCompatActivity {
         });
 
     }
+
 }

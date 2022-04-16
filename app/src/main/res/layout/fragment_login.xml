@@ -8,7 +8,7 @@
     tools:context=".LoginFragment">
 
     <EditText
-        android:id="@+id/passwordField"
+        android:id="@+id/passwordLoginField"
         android:background="@drawable/registerloginbuttons"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
@@ -21,13 +21,13 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/registerbutton"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailField" />
+        app:layout_constraintTop_toBottomOf="@+id/emailLoginField" />
 
     <EditText
-        android:id="@+id/emailField"
+        android:id="@+id/emailLoginField"
         android:layout_width="303dp"
         android:layout_height="45dp"
         android:layout_marginStart="54dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/registerbutton"
+        android:id="@+id/loginButton"
         android:onClick="buttonClick"
         android:background="@drawable/registerloginbuttons"
         android:paddingStart="12dp"
@@ -57,5 +57,5 @@
         android:text="Sign In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordField" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordLoginField" />
 </androidx.constraintlayout.widget.ConstraintLayout>

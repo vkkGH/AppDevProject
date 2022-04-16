@@ -3,13 +3,22 @@ package com.example.project;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.auth.AuthResult;
+//import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,7 +26,7 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment {
-
+    FirebaseAuth fAuth;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,12 +73,42 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        fAuth = FirebaseAuth.getInstance();
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        registerBtn = view.findViewById(R.id.registerbutton);
+        EditText emailInfo = view.findViewById(R.id.emailLoginField);
+        EditText passwordInfo = view.findViewById(R.id.passwordLoginField);
+        Button register = view.findViewById(R.id.loginButton);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast message = null;
+                String email = emailInfo.getText().toString();
+                String password = passwordInfo.getText().toString();
+                fAuth = FirebaseAuth.getInstance();
+                if (email.isEmpty() || password.isEmpty()) {
 
-        registerBtn.setOnClickListener(view1 -> {
-           Intent intent = new Intent(getActivity(), Recycle.class);
-           startActivity(intent);
+                    message = Toast.makeText(getActivity(), "Please fill all the fields!", Toast.LENGTH_LONG);
+                    message.show();
+                }
+                else {
+                    fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getActivity(), "You have logged in successfully!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getContext(), Recycler.class);
+                                startActivity(intent);
+                            }
+                            else {
+                                Toast.makeText(getActivity(), "Login unsuccessful!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
+
+            }
+
+
         });
 
         return view;
