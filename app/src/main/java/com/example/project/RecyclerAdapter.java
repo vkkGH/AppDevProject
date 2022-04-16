@@ -39,7 +39,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         Destination destination = destinationsList.get(position);
         holder.destinationName.setText(String.valueOf(destination.getLocation_name()));
         holder.destinationPrice.setText(String.valueOf(destination.getPrice()));
-       //Glide.with(destinationContext).load(destination.getImage().into(holder.destinationImage));
+        Glide.with(destinationContext).load(destination.getImageUrl()).into(holder.destinationImage);
 
        // holder.destinationName.setText(destinationsList.get(position).getName());
         //holder.destinationPrice.setText(String.valueOf(destinationsList.get(position).getPrice()));
