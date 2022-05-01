@@ -61,13 +61,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="170dp"
+        android:tint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/destinationPriceView"
         app:layout_constraintEnd_toEndOf="@+id/destinationPriceView"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.806"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/destinationImageView"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_attach_money_24" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="107dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#0099FF"
+        android:text="Discover"
+        android:textColor="#FFFDFD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destinationImageView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

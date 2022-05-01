@@ -17,20 +17,20 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-
+    private final ListenerInterface listener;       // new
     Context destinationContext;
     ArrayList<Destination> destinationsList;
-
-    public RecyclerAdapter(Context destinationContext, ArrayList<Destination> destinationsList) {
+    public RecyclerAdapter(Context destinationContext, ArrayList<Destination> destinationsList, ListenerInterface listener) {        // new
         this.destinationContext = destinationContext;
         this.destinationsList = destinationsList;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_adventures, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, listener);
     }
 
     @Override
@@ -50,17 +50,33 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return destinationsList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+
+    public static class ViewHolder extends RecyclerView.ViewHolder { // new
         ImageView destinationImage;
         TextView destinationName;
         TextView destinationPrice;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, ListenerInterface listener) {     // new
             super(itemView);
             destinationImage = itemView.findViewById(R.id.destinationImageView);
             destinationName = itemView.findViewById(R.id.destinationNameView);
             destinationPrice = itemView.findViewById(R.id.destinationPriceView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
         }
+
     }
+
 
 
 

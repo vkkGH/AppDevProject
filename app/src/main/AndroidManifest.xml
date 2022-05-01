@@ -28,6 +28,9 @@
             android:name=".Recycler"
             android:exported="false" />
         <activity
+            android:name=".DestinationPage"
+            android:exported="false" />
+        <activity
             android:name=".Intro"
             android:exported="true">
             <intent-filter>

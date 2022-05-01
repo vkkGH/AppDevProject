@@ -1,7 +1,9 @@
 package com.example.project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Recycler extends AppCompatActivity {
+public class Recycler extends AppCompatActivity implements ListenerInterface  { // new
     RecyclerView recyclerView;
     private DatabaseReference database;
     private ArrayList<Destination> destinationsList;
@@ -38,7 +40,7 @@ public class Recycler extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         destinationsList = new ArrayList<>();
-        recyclerAdapter = new RecyclerAdapter(this, destinationsList);
+        recyclerAdapter = new RecyclerAdapter(this, destinationsList, this);
         recyclerView.setAdapter(recyclerAdapter);
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,4 +61,15 @@ public class Recycler extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onItemClick(int position) {     // new
+
+        Intent intent = new Intent(Recycler.this, DestinationPage.class);
+        intent.putExtra("Image", destinationsList.get(position).getImageUrl());
+        intent.putExtra("Name", destinationsList.get(position).getLocation_name());
+        intent.putExtra("Price", destinationsList.get(position).getPrice());
+        startActivity(intent);
+        finish();
+    }
 }
