@@ -49,6 +49,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         return destinationsList.size();
     }
+    public void filterGiftNameList(ArrayList<Destination> filteredDestinationNameList) {
+        destinationsList = filteredDestinationNameList;
+        notifyDataSetChanged();
+    }
 
 
 
