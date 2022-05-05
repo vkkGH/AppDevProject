@@ -1,20 +1,29 @@
 package com.example.project;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.Resource;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
 import java.net.URI;
 
 public class DestinationPage extends AppCompatActivity {
+    DatabaseReference favDBRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -33,5 +42,35 @@ public class DestinationPage extends AppCompatActivity {
         nameView.setText(name);
         priceView.setText(price);
         Glide.with(this).load(image).into(imageView);
+
+        TextView addToFavorite = findViewById(R.id.destinationAddToFav);
+        Destination destination = new Destination(name, image, price);
+        String loggedInUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        favDBRef = FirebaseDatabase.getInstance().getReference().child("Favorites" + loggedInUserID);
+        addToFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insertDestinationIntoFavorites(destination, loggedInUserID);
+            }
+        });
+
+
+    }
+    private void insertDestinationIntoFavorites(Destination destination, String loggedUserID) {
+        DatabaseReference tableRef = FirebaseDatabase.getInstance().getReference("Favorites" + loggedUserID);
+        DatabaseReference giftIdRef = tableRef.child("location_name");
+        giftIdRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!snapshot.exists()) {
+                    favDBRef.child(destination.getLocation_name()).setValue(destination);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
     }
 }

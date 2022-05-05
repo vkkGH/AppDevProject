@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+            android:name=".GithubAuthActivity"
+            android:exported="false" />
+        <activity
             android:name=".FavoritesRecyclerAdapter"
             android:exported="false" />
         <activity
