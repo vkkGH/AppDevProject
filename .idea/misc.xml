@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/gitbackground.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_email.xml" value="0.2385" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/left_arrow.xml" value="0.2985" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/menu.xml" value="0.2385" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/registerloginbuttons.xml" value="0.2985" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_adventures.xml" value="0.33" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_destination.xml" value="0.33" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_github_auth.xml" value="0.358695652173913" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_payment.xml" value="0.23896103896103896" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_success.xml" value="0.358695652173913" />
