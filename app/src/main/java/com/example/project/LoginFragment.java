@@ -78,6 +78,7 @@ public class LoginFragment extends Fragment {
         EditText emailInfo = view.findViewById(R.id.emailLoginField);
         EditText passwordInfo = view.findViewById(R.id.passwordLoginField);
         Button register = view.findViewById(R.id.loginButton);
+        Button githubbtn = view.findViewById(R.id.githubLogin);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +109,16 @@ public class LoginFragment extends Fragment {
 
             }
 
+        });
 
+
+        githubbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), GithubAuthActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
         });
 
         return view;
