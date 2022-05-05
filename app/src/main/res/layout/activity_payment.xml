@@ -148,17 +148,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="141dp"
-        android:layout_height="0dp"
+        android:layout_width="209dp"
+        android:layout_height="46dp"
         android:layout_marginStart="135dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="135dp"
-        android:text="Book trip"
+        android:text="Book Your Trip"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

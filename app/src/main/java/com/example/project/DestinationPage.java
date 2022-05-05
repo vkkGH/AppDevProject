@@ -1,7 +1,9 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +44,15 @@ public class DestinationPage extends AppCompatActivity {
         nameView.setText(name);
         priceView.setText(price);
         Glide.with(this).load(image).into(imageView);
+
+        Button bookButton = findViewById(R.id.button);
+        bookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Payment.class);
+                startActivity(intent);
+            }
+        });
 
         TextView addToFavorite = findViewById(R.id.destinationAddToFav);
         Destination destination = new Destination(name, image, price);
