@@ -149,12 +149,14 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="411dp"
-                android:layout_height="353dp"
+                android:layout_width="365dp"
+                android:layout_height="342dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="308dp"
-                android:text="Descriptive text to be here..."
+                android:layout_marginEnd="16dp"
+                android:text="Each Place is beautiful and unique, They offer exlucsive management offered by the best of the best, as well as words are not enough to describe this place it is a must see country and city."
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -221,7 +223,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="264dp"
                 android:layout_marginEnd="337dp"
-                android:text="TextView"
+                android:text="Hosted by 5 star hotels"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -248,7 +250,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="140dp"
                 android:layout_marginEnd="337dp"
-                android:text="TextView"
+                android:text="Country"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -257,7 +259,8 @@
     </androidx.core.widget.NestedScrollView>
 
     <ImageView
-        android:id="@+id/imageView4"
+
+        android:id="@+id/imageViewBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
