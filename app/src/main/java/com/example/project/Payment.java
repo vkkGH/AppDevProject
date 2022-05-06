@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -16,7 +17,6 @@ public class Payment extends AppCompatActivity {
     private Button btn;
     private EditText fullName, cardNumber, CVV, date;
     private RadioButton visa, master;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

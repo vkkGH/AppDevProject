@@ -26,6 +26,7 @@ import java.net.URI;
 
 public class DestinationPage extends AppCompatActivity {
     DatabaseReference favDBRef;
+    private ImageView backbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -40,6 +41,15 @@ public class DestinationPage extends AppCompatActivity {
         TextView nameView = findViewById(R.id.destinationName);
         TextView priceView = findViewById(R.id.priceView);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        backbtn = findViewById(R.id.imageViewBack);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DestinationPage.this, Recycler.class);
+                startActivity(intent);
+            }
+        });
 
         nameView.setText(name);
         priceView.setText(price);
