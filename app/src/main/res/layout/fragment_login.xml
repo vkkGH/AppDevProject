@@ -9,18 +9,18 @@
 
     <EditText
         android:id="@+id/passwordLoginField"
-        android:background="@drawable/registerloginbuttons"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
         android:layout_width="303dp"
         android:layout_height="45dp"
         android:layout_marginStart="54dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="54dp"
         android:layout_marginBottom="66dp"
+        android:background="@drawable/registerloginbuttons"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,15 +45,15 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:onClick="buttonClick"
-        android:background="@drawable/registerloginbuttons"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
         android:layout_width="303dp"
         android:layout_height="46dp"
         android:layout_marginStart="54dp"
         android:layout_marginTop="66dp"
         android:layout_marginEnd="54dp"
+        android:background="@drawable/registerloginbuttons"
+        android:onClick="buttonClick"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         android:text="Sign In"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,4 +74,18 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <Button
+        android:id="@+id/googleLogin"
+        android:layout_width="303dp"
+        android:layout_height="46dp"
+        android:background="@drawable/registerloginbuttons"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="Google Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/githubLogin"
+        app:layout_constraintVertical_bias="0.047" />
 </androidx.constraintlayout.widget.ConstraintLayout>
