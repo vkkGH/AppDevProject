@@ -3,13 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/gitbackground.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2385" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_email.xml" value="0.2385" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/left_arrow.xml" value="0.2985" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/menu.xml" value="0.2385" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/drawable/registerloginbuttons.xml" value="0.2985" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_adventures.xml" value="0.33" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_destination.xml" value="0.33" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_github_auth.xml" value="0.358695652173913" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
-        <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_payment.xml" value="0.23896103896103896" />
+        <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_payment.xml" value="0.33" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_success.xml" value="0.358695652173913" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/activity_welcome.xml" value="0.14722222222222223" />
         <entry key="..\:/Github/AppDevProject/app/src/main/res/layout/fragment_login.xml" value="0.358695652173913" />
@@ -31,8 +40,6 @@
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/vgeor/OneDrive/Documents/GitHub/AppDevProject/app/src/main/res/layout/fragment_sign_up.xml" value="0.25416666666666665" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2305" />
-        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2295" />
-        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1025" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2305" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2305" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/left_arrow.xml" value="0.2985" />
@@ -40,8 +47,7 @@
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/menustyle.xml" value="0.3635" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/drawable/registerloginbuttons.xml" value="0.294" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_adventures.xml" value="0.2658959537572254" />
-        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_destination.xml" value="0.5" />
-        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_github_auth.xml" value="0.34148550724637683" />
+        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_destination.xml" value="0.33" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_intro.xml" value="0.32653985507246375" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_payment.xml" value="0.3625" />
@@ -51,8 +57,6 @@
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_timer.xml" value="0.3283514492753623" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/activity_welcome.xml" value="0.3283514492753623" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/destinations.xml" value="0.3283514492753623" />
-        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/favorites.xml" value="0.5933503836317136" />
-        <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/favorites_view.xml" value="0.33" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/fragment_sign_up.xml" value="0.5" />
         <entry key="..\:/Vanier/App Dev 2/Projects/Project/app/src/main/res/layout/recycle_main.xml" value="0.3283514492753623" />

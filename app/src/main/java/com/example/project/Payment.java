@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Payment extends AppCompatActivity {
 
     private Button btn;
-    EditText fullName, cardNumber, CVV, date;
+    private EditText fullName, cardNumber, CVV, date;
+    private RadioButton visa, master;
 
 
     @Override
@@ -26,56 +29,31 @@ public class Payment extends AppCompatActivity {
         cardNumber = findViewById(R.id.EditTextCardNumber);
         CVV = findViewById(R.id.EditTextCVV);
         date = findViewById(R.id.EditTextDate);
-
-        fullName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String theFullName;
-                theFullName = fullName.getText().toString();
-                if(theFullName.isEmpty()) {
-                    Toast.makeText(Payment.this, "Cannot leave blank", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        cardNumber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String theCardNumber;
-                theCardNumber = cardNumber.getText().toString();
-                if(theCardNumber.isEmpty()) {
-                    Toast.makeText(Payment.this, "Cannot leave blank", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        CVV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String theCVV;
-                theCVV = CVV.getText().toString();
-                if(theCVV.isEmpty()) {
-                    Toast.makeText(Payment.this, "Cannot leave blank", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String theDate;
-                theDate = date.getText().toString();
-                if(theDate.isEmpty()) {
-                    Toast.makeText(Payment.this, "Cannot leave blank", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        
+        visa = findViewById(R.id.radioButtonVisa);
+        master = findViewById(R.id.radioButtonMaster);
 
         btn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, Success.class);
-            startActivity(intent);
+            if(!fullName.getText().toString().isEmpty() &&
+                    !cardNumber.getText().toString().isEmpty() &&
+                    !CVV.getText().toString().isEmpty() && !date.getText().toString().isEmpty()) {
+                Intent intent = new Intent(this, Success.class);
+                startActivity(intent);
+            }
+
+            else {
+                Toast.makeText(Payment.this, "Please fill in the empty requirements", Toast.LENGTH_SHORT).show();
+            }
+
         });
 
     }
+
+//    public void checkButton(View v) {
+//        int radioId = radioGroup.getCheckedRadioButtonId();
+//        radioButton = findViewById(radioId);
+//
+//        if(!radioButton.isChecked()) {
+//            Toast.makeText(Payment.this, "Please check button", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
