@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -16,7 +17,7 @@ public class Payment extends AppCompatActivity {
     private Button btn;
     private EditText fullName, cardNumber, CVV, date;
     private RadioButton visa, master;
-
+    private ImageView backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,15 @@ public class Payment extends AppCompatActivity {
         date = findViewById(R.id.EditTextDate);
         visa = findViewById(R.id.radioButtonVisa);
         master = findViewById(R.id.radioButtonMaster);
+        backbtn = findViewById(R.id.imageButtonBackPayment);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Payment.this, DestinationPage.class);
+                startActivity(intent);
+            }
+        });
 
         btn.setOnClickListener(view -> {
             if(!fullName.getText().toString().isEmpty() &&

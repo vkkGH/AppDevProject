@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +31,7 @@ public class Recycler extends AppCompatActivity implements ListenerInterface  { 
     private DatabaseReference database;
     private ArrayList<Destination> destinationsList;
     private RecyclerAdapter recyclerAdapter;
+    private ImageView backbtn;
 
 
 
@@ -39,12 +42,22 @@ public class Recycler extends AppCompatActivity implements ListenerInterface  { 
         getSupportActionBar().hide();
         getWindow().setStatusBarColor(ContextCompat.getColor(Recycler.this, R.color.black));
         recyclerView = findViewById(R.id.destinations);
+        backbtn = findViewById(R.id.imageButtonRecycle);
         database = FirebaseDatabase.getInstance().getReference("Locations");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         destinationsList = new ArrayList<>();
         recyclerAdapter = new RecyclerAdapter(this, destinationsList, this);
         recyclerView.setAdapter(recyclerAdapter);
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Recycler.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
