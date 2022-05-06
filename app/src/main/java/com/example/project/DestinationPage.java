@@ -25,7 +25,9 @@ import org.w3c.dom.Text;
 import java.net.URI;
 
 public class DestinationPage extends AppCompatActivity {
+
     DatabaseReference favDBRef;
+    ImageView backbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
@@ -40,6 +42,7 @@ public class DestinationPage extends AppCompatActivity {
         TextView nameView = findViewById(R.id.destinationName);
         TextView priceView = findViewById(R.id.priceView);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        backbtn = findViewById(R.id.imageViewBack);
         nameView.setText(name);
         priceView.setText(price);
         Glide.with(this).load(image).into(imageView);
@@ -61,6 +64,15 @@ public class DestinationPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DestinationPage.this, Recycler.class);
+                startActivity(intent);
+            }
+        });
+
         Button bookButton = findViewById(R.id.button);
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
