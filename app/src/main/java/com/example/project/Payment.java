@@ -36,7 +36,7 @@ public class Payment extends AppCompatActivity {
             if(!fullName.getText().toString().isEmpty() &&
                     !cardNumber.getText().toString().isEmpty() &&
                     !CVV.getText().toString().isEmpty() && !date.getText().toString().isEmpty()) {
-                Intent intent = new Intent(this, Success.class);
+                Intent intent = new Intent(this, Timer.class);
                 startActivity(intent);
             }
 
