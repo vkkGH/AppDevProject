@@ -3,6 +3,9 @@ package com.example.project;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -58,7 +61,32 @@ public class Recycler extends AppCompatActivity implements ListenerInterface  { 
 
             }
         });
+        EditText searchBar = findViewById(R.id.searchBar);
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filterGiftName(editable.toString());
+            }
+        });
+    }
+    private void filterGiftName(String searchTitle) {
+        ArrayList<Destination> destinationsNamesList = new ArrayList<>();
+        for (Destination destination : destinationsList) {
+            if (destination.getLocation_name().toLowerCase().contains(searchTitle.toLowerCase())) {
+                destinationsNamesList.add(destination);
+            }
+        }
+        recyclerAdapter.filterGiftNameList(destinationsNamesList);
     }
 
 
