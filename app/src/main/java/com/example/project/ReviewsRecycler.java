@@ -35,7 +35,7 @@ public class ReviewsRecycler extends AppCompatActivity implements ListenerInterf
         recyclerView = findViewById(R.id.reviewsList);
         Intent intent = getIntent();
         String locationName = intent.getStringExtra("name");
-        database = FirebaseDatabase.getInstance().getReference("Review" + locationName);
+        database = FirebaseDatabase.getInstance().getReference().child("Review" + locationName);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         reviewList = new ArrayList<>();
