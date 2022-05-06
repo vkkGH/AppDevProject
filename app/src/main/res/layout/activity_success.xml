@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
-        android:text="Your Trip Booking Success!"
+        android:text="Your Trip Has Been Booked Successfully!"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
 

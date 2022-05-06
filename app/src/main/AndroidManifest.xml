@@ -13,6 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+            android:name=".Review"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewsRecyclerAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewsRecycler"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".GithubAuthActivity"
             android:exported="false" />
         <activity

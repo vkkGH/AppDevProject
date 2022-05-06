@@ -40,11 +40,27 @@ public class DestinationPage extends AppCompatActivity {
         TextView nameView = findViewById(R.id.destinationName);
         TextView priceView = findViewById(R.id.priceView);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-
         nameView.setText(name);
         priceView.setText(price);
         Glide.with(this).load(image).into(imageView);
-
+        TextView seeReviews = findViewById(R.id.seeReviewsText);
+        seeReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ReviewsRecycler.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
+        TextView addReview = findViewById(R.id.destinationAddReview);
+        addReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Review.class);
+                intent.putExtra("name", name);
+                startActivity(intent);
+            }
+        });
         Button bookButton = findViewById(R.id.button);
         bookButton.setOnClickListener(new View.OnClickListener() {
             @Override
