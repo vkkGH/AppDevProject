@@ -27,7 +27,6 @@ import java.net.URI;
 public class DestinationPage extends AppCompatActivity {
     DatabaseReference favDBRef;
     private ImageView backbtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();

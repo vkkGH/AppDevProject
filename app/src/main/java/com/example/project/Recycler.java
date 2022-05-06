@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -87,6 +88,7 @@ public class Recycler extends AppCompatActivity implements ListenerInterface  { 
             }
 
             @Override
+
             public void afterTextChanged(Editable editable) {
                 filterGiftName(editable.toString());
             }
