@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/emailField5"
+        android:id="@+id/EditTextDate"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -33,10 +33,10 @@
         android:text="CVV"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailField2" />
+        app:layout_constraintTop_toBottomOf="@+id/EditTextFullName" />
 
     <EditText
-        android:id="@+id/emailField4"
+        android:id="@+id/EditTextCVV"
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
@@ -49,7 +49,7 @@
         android:paddingEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.62"
-        app:layout_constraintStart_toEndOf="@+id/emailField3"
+        app:layout_constraintStart_toEndOf="@+id/EditTextCardNumber"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailField2" />
+        app:layout_constraintTop_toBottomOf="@+id/EditTextFullName" />
 
     <TextView
         android:id="@+id/textView6"
@@ -76,10 +76,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailField3" />
+        app:layout_constraintTop_toBottomOf="@+id/EditTextCardNumber" />
 
     <EditText
-        android:id="@+id/emailField3"
+        android:id="@+id/EditTextCardNumber"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/emailField2"
+        android:id="@+id/EditTextFullName"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
